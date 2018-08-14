@@ -1,6 +1,7 @@
 import db.DBHelper;
 import models.Director;
 import models.Film;
+import models.GenreType;
 
 import java.util.List;
 
@@ -10,8 +11,8 @@ public class Runner {
 
         Director directorPeter = new Director("Peter Jackson");
         DBHelper.save(directorPeter);
-        Film film1 = new Film("Hobbit", directorPeter, 12);
-        Film film2 = new Film("Hobbit 2", directorPeter, 12);
+        Film film1 = new Film("Hobbit", directorPeter, 12, GenreType.COMEDY);
+        Film film2 = new Film("Hobbit 2", directorPeter, 12, GenreType.FANTASY);
         DBHelper.save(film1);
         DBHelper.save(film2);
         film1.setTitle("Lord of the Rings");

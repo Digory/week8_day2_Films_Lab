@@ -9,15 +9,17 @@ public class Film {
     private Director director;
     private int ageRating;
     private int id;
+    private GenreType genre;
 
     public Film(){
 
     }
 
-    public Film(String title, Director director, int ageRating) {
+    public Film(String title, Director director, int ageRating, GenreType genre) {
         this.title = title;
         this.director = director;
         this.ageRating = ageRating;
+        this.genre = genre;
     }
 
     @Id
@@ -57,5 +59,14 @@ public class Film {
 
     public void setAgeRating(int ageRating) {
         this.ageRating = ageRating;
+    }
+
+    @Enumerated(value = EnumType.STRING)
+    public GenreType getGenre() {
+        return genre;
+    }
+
+    public void setGenre(GenreType genre) {
+        this.genre = genre;
     }
 }
