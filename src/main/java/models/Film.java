@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "films")
@@ -11,6 +12,7 @@ public class Film {
     private int id;
     private GenreType genre;
 
+
     public Film(){
 
     }
@@ -20,6 +22,7 @@ public class Film {
         this.director = director;
         this.ageRating = ageRating;
         this.genre = genre;
+
     }
 
     @Id
@@ -68,5 +71,8 @@ public class Film {
 
     public void setGenre(GenreType genre) {
         this.genre = genre;
+    }
+
+
     }
 }

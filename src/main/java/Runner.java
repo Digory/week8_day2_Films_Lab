@@ -3,14 +3,19 @@ import models.Director;
 import models.Film;
 import models.GenreType;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Runner {
 
     public static void main(String[] args) {
+        Calendar timeNow = Calendar.getInstance();
+        Date date = timeNow.getTime();
 
         Director directorPeter = new Director("Peter Jackson");
         DBHelper.save(directorPeter);
+
         Film film1 = new Film("Hobbit", directorPeter, 12, GenreType.COMEDY);
         Film film2 = new Film("Hobbit 2", directorPeter, 12, GenreType.FANTASY);
         DBHelper.save(film1);
