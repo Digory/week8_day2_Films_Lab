@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.List;
+
 public class DBHelper {
     private static Transaction transaction;
     private static Session session;
@@ -65,5 +67,19 @@ public class DBHelper {
             session.close();
         }
         return result;
+    }
+
+    public static <T>List<T> getAll(Class classType){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<T> results = null;
+        try {
+            Criteria cr = session.createCriteria(classType);
+            results = cr.list();
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
     }
 }
