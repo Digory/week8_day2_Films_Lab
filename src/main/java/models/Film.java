@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -11,17 +12,22 @@ public class Film {
     private int ageRating;
     private int id;
     private GenreType genre;
-
+    private Calendar dateOfRelease;
 
     public Film(){
 
     }
 
-    public Film(String title, Director director, int ageRating, GenreType genre) {
+    public Film(String title, Director director, int ageRating, GenreType genre, int year, int month, int day) {
         this.title = title;
         this.director = director;
         this.ageRating = ageRating;
         this.genre = genre;
+        this.dateOfRelease = Calendar.getInstance();
+        dateOfRelease.set(Calendar.YEAR, year);
+        dateOfRelease.set(Calendar.MONTH, month);
+        dateOfRelease.set(Calendar.DAY_OF_MONTH, day);
+
 
     }
 
@@ -73,6 +79,13 @@ public class Film {
         this.genre = genre;
     }
 
+    @Basic
+    @Temporal(TemporalType.DATE)
+    public Date getDateOfRelease() {
+        return dateOfRelease.getTime();
+    }
 
+    public void setDateOfRelease(Calendar dateOfRelease) {
+        this.dateOfRelease = dateOfRelease;
     }
 }

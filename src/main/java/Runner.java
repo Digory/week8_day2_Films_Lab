@@ -16,8 +16,8 @@ public class Runner {
         Director directorPeter = new Director("Peter Jackson");
         DBHelper.save(directorPeter);
 
-        Film film1 = new Film("Hobbit", directorPeter, 12, GenreType.COMEDY);
-        Film film2 = new Film("Hobbit 2", directorPeter, 12, GenreType.FANTASY);
+        Film film1 = new Film("Hobbit", directorPeter, 12, GenreType.COMEDY,2018, 1, 13);
+        Film film2 = new Film("Hobbit 2", directorPeter, 12, GenreType.FANTASY, 2016, 2, 3);
         DBHelper.save(film1);
         DBHelper.save(film2);
         film1.setTitle("Lord of the Rings");
